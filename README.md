@@ -32,7 +32,7 @@ Speedup (GM) for Loop + Memoization (d) wrt (a):  **40.91 x 10^6** <br>
 ### (b) **Double** In each case, (i.e. Bucket 1 for (a) and (b) + Bucket 2 for (a) and( b)) (Total: 100 points)
 ### Bucket1: C++ Bucket2: Python
 
-To know the split between User CPU and System CPU Time: <br>
+To know the split between **User CPU** and **System CPU** Time: <br>
 For **C++**
 ```bash
 g++ -std=c++17 Program.cpp
@@ -51,6 +51,30 @@ This will append and dump console log into ```output.txt```
 ```
 CPU Time taken by the Meat Portion function: 0.005390s
 ./a.out  0.01s user 0.00s system 2% cpu 0.521 total
+```
+
+To Find the CPU time of a portion of a program: <br>
+In **C++**
+```cpp
+struct timespec tmStart, tmEnd;
+
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tmStart);
+/*
+CODE HERE
+*/
+clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &tmEnd);
+
+double time_taken = ((tmEnd.tv_sec - tmStart.tv_sec) * 1e9 + (tmEnd.tv_nsec - tmStart.tv_nsec)) / 1e9;
+```
+
+In **Python**
+```python
+start_time = time.process_time()
+## Some Code
+end_time = time.process_time()
+
+time_taken = end_time - start_time
+
 ```
 
 ## (a.) Finding USER CPU and SYSTEM CPU Time
@@ -78,4 +102,64 @@ CPU Time taken by the Meat Portion function: 0.005390s
     <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatSys.png" style="width: 45%">
 </div>
 
+## (b.) Execution Time for Meat Portion and Total Execution Time of the Program
+**Total Execution Time = User CPU Time + System CPU Time**
 
+### C++ INTEGER
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerMeat.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerExecution.png" style="width: 45%">
+</div>
+
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerProportion.png" style="width: 50%">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerAll.png" style="width: 50%">
+</div>
+
+### C++ DOUBLE
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatMeat.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatExecution.png" style="width: 45%">
+</div>
+
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatProportion.png" style="width: 50%">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatAll.png" style="width: 50%">
+</div>
+
+### PYTHON INTEGER
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntMeat.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntExecution.png" style="width: 45%">
+</div>
+
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntProportion.png" style="width: 50%">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntAll.png" style="width: 50%">
+</div>
+
+### PYTHON FLOAT
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatMeat.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatExecution.png" style="width: 45%">
+</div>
+
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatProportion.png" style="width: 50%">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatAll.png" style="width: 50%">
+</div>
+
+
+## (c.) Plot the (a) and (b) execution times for each of the iterations. And compare the performance of the programs for given value of N for the languages in both the buckets
+
+### Total Execution Time PYTHON vs. C++ for INTEGER
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/ExecuteInt.png" style="width: 50%">
+</div>
+
+### Total Execution Time PYTHON vs. C++ for FLOATING
+<div align = "center">
+<img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/ExecuteFloat.png" style="width: 50%">
+</div>
+
+# C++ BEATS PYTHON IN THIS PERFORMANCE ASPECT
