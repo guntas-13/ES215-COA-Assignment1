@@ -32,6 +32,50 @@ Speedup (GM) for Loop + Memoization (d) wrt (a):  **40.91 x 10^6** <br>
 ### (b) **Double** In each case, (i.e. Bucket 1 for (a) and (b) + Bucket 2 for (a) and( b)) (Total: 100 points)
 ### Bucket1: C++ Bucket2: Python
 
+To know the split between User CPU and System CPU Time: <br>
+For **C++**
+```bash
+g++ -std=c++17 Program.cpp
+```
 
+```bash
+(time ./a.out) &>> output.txt
+```
+
+For **Python**
+```bash
+(time python3 Program.py) &>> output.txt
+```
+This will append and dump console log into ```output.txt```
+
+```
+CPU Time taken by the Meat Portion function: 0.005390s
+./a.out  0.01s user 0.00s system 2% cpu 0.521 total
+```
+
+## (a.) Finding USER CPU and SYSTEM CPU Time
+### C++ INTEGER
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerUser.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPIntegerSys.png" style="width: 45%">
+</div>
+
+### C++ DOUBLE
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatUser.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/CPPFloatSys.png" style="width: 45%">
+</div>
+
+### Python INTEGER
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntUser.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonIntSys.png" style="width: 45%">
+</div>
+
+### Python FLOAT
+<div align = "center">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatUser.png" style="float: left; width: 45%">
+    <img src = "https://github.com/guntas-13/ES215-COA-Assignment1/blob/main/Q2Media/PythonFloatSys.png" style="width: 45%">
+</div>
 
 
