@@ -164,3 +164,11 @@ time_taken = end_time - start_time
 </div>
 
 # C++ BEATS PYTHON IN THIS PERFORMANCE ASPECT
+
+## Observations
+- CPU Time = User CPU Time + System CPU Time
+- The System CPU time is nearly constant since it is the amount of time the CPU was busy executing code in kernel space. This does not include the meat portion of the program.
+- CPU time for C++ code is much less than that of the Python code
+- Definitely, with increasing N values, the CPU time increases since the algorithm runs in $O(N^3)$ time
+- With increasing N, the meat portion time's proportion wrt the total execution time (CPU Time) increases and limits to 1 since this part (matrix multiplication) starts holding the major computation of the entire program with increasing N as user CPU time increases with N owing to the time complexity mentioned above.
+- For C++, the integer operations are faster than double/floating point operations, this is because integers operations have system level implementations that use lower number of clock cycles to execute owing to their easier conversions and limited size to binary.
